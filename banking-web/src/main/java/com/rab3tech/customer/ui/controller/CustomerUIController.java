@@ -88,6 +88,12 @@ public class CustomerUIController {
 	@Autowired
    private CustomerTransactionService customerTransactionService;
 	
+	@PostMapping("/customer/profile/update")
+	public String updateCustomer(int cid,String name,String jobTitle) throws IOException {
+		customerService.updateCustomerProfile(cid, name,jobTitle);
+		return "redirect:/customer/profile";// I will refresh your page
+	}
+	
 	@PostMapping("/customer/profile/photo")
 	public String changeCustomerPhoto(@RequestParam int cid,@RequestParam("pppppphoto") MultipartFile photo) throws IOException {
 		byte[] bphoto=photo.getBytes();
@@ -119,6 +125,14 @@ public class CustomerUIController {
 		return "/customer/profile";//profile.html
 	}
 
+	@GetMapping("/customer/profile/edit")
+	public String showEditProfile(Model model,HttpSession session){
+		LoginVO  loginVO2=(LoginVO)session.getAttribute("userSessionVO");
+		String currentLoggedInUserName=loginVO2.getUsername();
+		CustomerVO customerVO=customerService.findCustomerByUsername(currentLoggedInUserName);
+		model.addAttribute("customerVO", customerVO);
+		return "/customer/eprofile";//eprofile.html
+	}
 	
 	@GetMapping("/customer/sendAccountStmt")
 	public String customerSendAccountStmt(Model model,HttpSession session) {

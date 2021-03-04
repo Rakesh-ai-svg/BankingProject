@@ -62,6 +62,8 @@ public interface CustomerService {
 	 */
 	void updatePhoto(int cid, byte[] photo);
 
+	void updateCustomerProfile(int cid, String name, String jobTitle);
+
 	
 
 }

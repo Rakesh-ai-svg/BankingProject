@@ -1,6 +1,8 @@
 package com.rab3tech.vo;
 
 public class FundTransferVO {
+	private String sfromAccount;
+	private String stoAccount;
 	private String fromAccount;
 	private String toAccount;
 	private String remarks;
@@ -8,7 +10,22 @@ public class FundTransferVO {
 	private int otp;
 	
 	
+	public String getSfromAccount() {
+		return sfromAccount;
+	}
 
+	public void setSfromAccount(String sfromAccount) {
+		this.sfromAccount = sfromAccount;
+	}
+
+	public String getStoAccount() {
+		return stoAccount;
+	}
+
+	public void setStoAccount(String stoAccount) {
+		this.stoAccount = stoAccount;
+	}
+	
 	public int getOtp() {
 		return otp;
 	}

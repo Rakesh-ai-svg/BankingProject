@@ -25,10 +25,10 @@ public class SpringBootRunner extends SpringBootServletInitializer {
 
 @SpringBootApplication
 //@EnableDiscoveryClient
-public class SpringBootRunner  {
-	
+public class SpringBootRunner {
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootRunner.class, args);
 	}
-	
+
 }
